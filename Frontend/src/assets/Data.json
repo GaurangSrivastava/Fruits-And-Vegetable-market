@@ -1,0 +1,252 @@
+[
+    {
+       "id": 1,
+       "name": "Potatoes",
+       "price": 30.00,
+       "image": "./images/Potato.jpeg",
+       "category": "Fresh-Vegetable",
+       "stock":2
+     },
+     {
+       "id": 2,
+      "name": "Spinach",
+       "price": 40.00,
+       "image": "./images/Spinach.webp",
+       "category": "Fresh-Vegetable",
+       "stock":2
+     },
+    {
+       "id": 3,
+      "name": "Onion",
+       "price": 60.00,
+       "image": "./images/Onion.jpeg",
+       "category": "Fresh-Vegetable",
+       "stock":2
+
+     },
+    {
+      "id": 4,
+      "name": "Eggplant",
+      "price": 50.00,
+      "image": "./images/Eggplant.webp",
+      "category": "Fresh-Vegetable",
+      "stock":2
+     },
+     {
+       "id": 5,
+      "name": "Cauliflower",
+       "price": 20.00,
+       "image": "./images/Cauliflower.jpeg",
+       "category": "Fresh-Vegetable",
+       "stock":2
+     },
+    {
+       "id": 6,
+      "name": "Bitter Gourd",
+       "price": 50.00,
+       "image": "./images/Bitter-Ground.jpeg",
+       "category": "Fresh-Vegetable",
+       "stock":2
+     },
+    {
+       "id": 7,
+      "name": "Garlic",
+       "price": 30.00,
+       "image": "./images/Garlic.webp",
+       "category": "Fresh-Vegetable",
+       "stock":2
+     },
+     {
+       "id": 8,
+      "name": "Lettuce",
+       "price": 370.00,
+       "image": "./images/Lettuce.jpeg",
+       "category": "Exotic-Vegetable",
+       "stock":2
+     },
+   
+    {
+      "id": 9,
+      "name": "Asparagus",
+      "price": 240.00,
+      "image":"./images/Asparagus.jpeg",
+      "category": "Exotic-Vegetable",
+      "stock":2
+    },
+    {
+       "id": 10,
+       "name": "Zucchini",
+       "price": 140.00,
+       "image": "./images/Zucchini.jpeg",
+       "category": "Exotic-Vegetable",
+       "stock":2
+     },
+   
+    {
+       "id": 11,
+       "name": "Bell Pepper",
+       "price": 330.00,
+       "image": "./images/Bell-Pepper.webp",
+       "category": "Exotic-Vegetable",
+       "stock":2
+     },
+   
+    {
+       "id": 12,
+       "name": "Broccoli",
+       "price": 90.00,
+       "image": "./images/Broccoli.jpeg",
+       "category": "Exotic-Vegetable",
+       "stock":2
+     },
+    {
+       "id": 13,
+      "name": "Baby corn",
+       "price": 110.00,
+       "image": "./images/Baby-corn.jpeg",
+       "category": "Exotic-Vegetable",
+       "stock":2
+     },
+   
+    {
+       "id": 13,
+       "name": "Apple",
+       "price": 60.00,
+       "image": "./images/Apple.webp",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   
+   {
+       "id": 14,
+       "name": "Banana",
+       "price": 20.00,
+       "image": "./images/Banana.webp",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 14,
+       "name": "Orange",
+       "price": 40.00,
+       "image": "./images/Orange.jpeg",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 15, 
+       "name": "Melons",
+       "price": 70.00,
+       "image": "./images/Melons.jpeg",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 16,
+      "name": "Grapes",
+       "price": 40.00,
+       "image": "./images/Grapes.webp",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 17,
+       "name": "Guava",
+       "price": 50.00,
+       "image": "./images/Guava.webp",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 18,
+      "name": "Pomegranate",
+       "price": 40.00,
+       "image": "./images/Pomegranate.jpeg",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   {
+       "id": 19,
+      "name": "Mango",
+       "price": 70.00,
+       "image": "./images/Mango.jpeg",
+       "category": "Fresh Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 20,
+      "name": "Strawberry",
+       "price": 270.00,
+       "image": "./images/Strawberry.jpeg",
+       "category": "Exotic Fruit",
+       "stock":2
+     },
+   
+   {
+     "id": 21,
+     "name": "Kiwi",
+     "price": 590.00,
+     "image": "./images/Kiwi.jpeg",
+     "category": "Exotic Fruit",
+     "stock":2
+     },
+   
+   {
+       "id": 22,
+      "name": "Apricot",
+       "price": 390.00,
+       "image": "./images/Apricot.webp",
+      "category": "Exotic Fruit",
+      "stock":2
+     },
+   
+   {
+       "id": 23,
+      "name": "Avocado",
+       "price": 177.00,
+       "image": "./images/Avacado.jpeg",
+       "category": "Exotic Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 24,
+      "name": "Dragon Fruit",
+       "price": 440.00,
+       "image": "./images/Dragon-Fruit.jpeg",
+       "category": "Exotic Fruit",
+       "stock":2
+     },
+   
+   {
+       "id": 25,
+      "name": "Blackberry",
+       "price": 500.00,
+       "image": "./images/Blackberry.webp",
+       "category": "Exotic Fruit",
+       "stock":2
+     },
+     {
+      "id": 26,
+     "name": "Tomato",
+      "price": 130.00,
+      "image": "./images/Tomato.jpg",
+      "category": "Fresh-Vegetable",
+      "stock":2
+    },
+    {
+      "id": 27,
+     "name": "Capsicum",
+      "price": 35.00,
+      "image": "./images/Capcicum.jpg",
+      "category": "Fresh-Vegetable",
+      "stock":2
+    }
+   ]
