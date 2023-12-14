@@ -4,7 +4,7 @@ import Background from "./assets/Login-background.jpg";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "./context/user_context";
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 function SignUp() {
   const initialValues = {
     username: "",
@@ -28,7 +28,7 @@ function SignUp() {
     setFormErrors(validate(formValues));
     try {
       const data = await axios.post(
-        `http://localhost:5000/api/customer/signup`,
+        `${backendURL}/api/customer/signup`,
         {
           username: formValues.username,
           email: formValues.email,

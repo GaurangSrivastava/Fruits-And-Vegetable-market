@@ -6,6 +6,7 @@ import styled from "styled-components";
 import img1 from "./assets/user.png";
 import { useUserContext } from "./context/user_context";
 import { AiFillPlusCircle } from "react-icons/ai";
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const Profile = () => {
   const [editing, setEditing] = useState(false);
   const { userId, setUserId, profile, setProfile } = useUserContext();
@@ -23,7 +24,7 @@ const Profile = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:5000/api/customer/detail",
+          "${backendURL}/api/customer/detail",
           {
             userId,
           }
@@ -61,7 +62,7 @@ const Profile = () => {
   const handleUpdate = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/customer/detail/update",
+        "${backendURL}/api/customer/detail/update",
         {
           userId,
           name: userData.name,

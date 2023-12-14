@@ -9,7 +9,7 @@ import axios from "axios";
 import reducer from "../reducer/productReducer";
 // import productData from "../assets/Data.json";
 const AppContext = createContext();
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const initialState = {
   isLoading: false,
   isError: false,
@@ -54,7 +54,7 @@ const AppProvider = ({ children }) => {
     const getData = async () => {
       try {
         const data = await axios.get(
-          "http://localhost:5000/api/product/getall"
+          "${backendURL}/api/product/getall"
         );
         console.log(data.data);
         setProductData(data.data);

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import FormatPrice from "../Helpers/FormatPrice";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const Product = (curElem) => {
   const { _id, name, image, price, type, stock } = curElem;
   //const [qty, setQty] = useState(1);
@@ -25,7 +26,7 @@ const Product = (curElem) => {
         setAddedToCart(true);
         setCartCount(cartCount + 1);
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/add",
+          "${backendURL}/api/customer/cart/add",
           {
             userId,
             item: _id,
@@ -46,7 +47,7 @@ const Product = (curElem) => {
         setAddedToCart(false);
         setCartCount(cartCount - 1);
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/delete",
+          "${backendURL}/api/customer/cart/delete",
           {
             userId,
             item: _id,
@@ -64,7 +65,7 @@ const Product = (curElem) => {
     const fetchData = async () => {
       try {
         const data = await axios.post(
-          "http://localhost:5000/api/product/isitincart",
+          "${backendURL}/api/product/isitincart",
           {
             userId,
             itemId: _id,

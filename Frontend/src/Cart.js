@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import img from "./assets/empty-cart.png"
 import { useNavigate } from 'react-router-dom';
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const Cart = () => {
   const userId = localStorage.getItem("userId");
   const { setCartCount } = useCartContext();
@@ -20,7 +21,7 @@ const Cart = () => {
     const getData = async () => {
       try {
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/all",
+          "${backendURL}/api/customer/cart/all",
           {
             userId,
           }
@@ -29,7 +30,7 @@ const Cart = () => {
         //console.log(cartItem);
         const itemDetailsPromises = cartItem.map(async (item) => {
           const itemResponse = await axios.post(
-            `http://localhost:5000/api/product/detail`,
+            `${backendURL}/api/product/detail`,
             {
               itemId: item.item,
             }
@@ -64,7 +65,7 @@ const Cart = () => {
     setCart([]);
     try {
       const data = await axios.post(
-        "http://localhost:5000/api/customer/cart/clear",
+        "${backendURL}/api/customer/cart/clear",
         {
           userId,
         }

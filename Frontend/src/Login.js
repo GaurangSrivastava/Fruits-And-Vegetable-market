@@ -6,7 +6,7 @@ import Background from "./assets/Login-background.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "./context/user_context";
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 function Login() {
   const initialValues = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -24,7 +24,7 @@ function Login() {
     setFormErrors(validate(formValues));
     try {
       const data = await axios.post(
-        `http://localhost:5000/api/customer/login`,
+        `${backendURL}/api/customer/login`,
         {
           username: formValues.username,
           password: formValues.password,

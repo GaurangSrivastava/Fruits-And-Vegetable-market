@@ -7,8 +7,8 @@ const cors = require("cors");
 const dbConnect = require("./src/config/DB.js");
 const apiRouter = require("./src/routes/index.js");
 const app = express();
-const PORT = 5000 || process.env.PORT;
-const stripe=require("stripe")("sk_test_51NoTO4SDUFtfqLpzXQQD5UKDTr10E8OWlM74p4sdSLPLR58jxUSwpkE7lS3tsZOLZyVom0q0PyPEsqlWJmbsuawy00BCkr5jAj");
+const PORT = process.env.PORT||5000;
+const stripe=require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 dotenv.config();
 dbConnect();

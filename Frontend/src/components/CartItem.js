@@ -4,7 +4,7 @@ import CartAmountToggle from "./CartAmountToggle";
 import { FaTrash } from "react-icons/fa";
 
 import axios from "axios";
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const CartItem = ({
   id,
   name,
@@ -36,7 +36,7 @@ const CartItem = ({
         //const newTotalPrice = totalPrice - price;
         setTotalPrice(totalPrice - price);
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/updateqty",
+          "${backendURL}/api/customer/cart/updateqty",
           {
             userId,
             item: id,
@@ -56,7 +56,7 @@ const CartItem = ({
       if (amount < 20) {
         setTotalPrice(totalPrice + price);
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/updateqty",
+          "${backendURL}/api/customer/cart/updateqty",
           {
             userId,
             item: id,
@@ -73,7 +73,7 @@ const CartItem = ({
   const removeItem = async (id) => {
     try {
       const data = await axios.post(
-        "http://localhost:5000/api/customer/cart/delete",
+        "${backendURL}/api/customer/cart/delete",
         {
           userId,
           item: id,

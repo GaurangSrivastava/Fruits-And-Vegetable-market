@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useUserContext } from "../context/user_context";
 import img1 from "../assets/user-icon.png"
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
   const [totalItem, setTotalItem] = useState(0);
@@ -20,13 +20,13 @@ const Nav = () => {
     const fetchData = async () => {
       try {
         const data = await axios.post(
-          "http://localhost:5000/api/customer/cart/all",
+          "${backendURL}/api/customer/cart/all",
           {
             userId,
           }
         );
         const data2 = await axios.post(
-          "http://localhost:5000/api/customer/detail",
+          "${backendURL}/api/customer/detail",
           {
             userId,
           }
