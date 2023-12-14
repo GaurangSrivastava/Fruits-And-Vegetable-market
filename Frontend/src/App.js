@@ -7,12 +7,24 @@ import Contact from "./Contact";
 import Cart from "./Cart";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Profile from "./Profile";
+import Predict from "./Predict";
+import TermsAndConditions from "./components/TermsAndConditions";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import CheckOutPage from "./components/CheckOutPage";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import PaymentSucess from "./components/PaymentSucess";
+import PaymentFailed from "./components/PaymentFailed";
+
+//public key:-
+const stripePromise = loadStripe('pk_test_51NoTO4SDUFtfqLpzNwaMYL90N08bYPiAGAWiCxBi0KfdpHOGNgEIQydC5d4CktCrSQGhSVE826URn6z9PpBxsTZq00NAHyNYId');
+
 const App = () => {
   const theme = {
     colors: {
@@ -22,9 +34,9 @@ const App = () => {
       black: " #212529",
       helper: "#8490ff",
 
-      bg: "#F6F8FA",
-      footer_bg: "#0a1435",
-      btn: "rgb(98 84 243)",
+      bg: "#80d880",
+      footer_bg: "#80d880",
+      btn: "rgb(32 157 34 / 80%)",
       border: "rgba(98, 84, 243, 0.5)",
       hr: "#ffffff",
       gradient:
@@ -49,10 +61,16 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />}/>
-          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/predicter" element={<Predict />} />
+          <Route path="/terms&condition" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/CheckOutPage" element={<Elements stripe={stripePromise}><CheckOutPage /></Elements>} />
+          <Route path="/payment-successfull" element={<PaymentSucess />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

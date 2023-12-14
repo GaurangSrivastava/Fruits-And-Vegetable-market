@@ -1,15 +1,14 @@
+import { useState } from "react";
 import { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from "../reducer/cartReducer";
 
 const CartContext = createContext();
 
 const getLocalCartData = () => {
-  let localCartData = localStorage.getItem("thapaCart");
-  if (localCartData === []) {
-    return [];
-  } else {
-    return JSON.parse(localCartData);
-  }
+  const localCartData = localStorage.getItem("NovusCart");
+  const parsedData = JSON.parse(localCartData);
+  if (!Array.isArray(parsedData)) return [];
+  return parsedData;
 };
 
 const initialState = {
@@ -22,7 +21,7 @@ const initialState = {
 
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const [cartCount, setCartCount] = useState(0);
   const addToCart = (id, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, amount, product } });
   };
@@ -51,11 +50,11 @@ const CartProvider = ({ children }) => {
   // get vs set
 
   useEffect(() => {
-    // dispatch({ type: "CART_TOTAL_ITEM" });
-    // dispatch({ type: "CART_TOTAL_PRICE" });
+    dispatch({ type: "CART_TOTAL_ITEM" });
+    dispatch({ type: "CART_TOTAL_PRICE" });
     dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
 
-    localStorage.setItem("thapaCart", JSON.stringify(state.cart));
+    localStorage.setItem("NovusCart", JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
@@ -67,7 +66,10 @@ const CartProvider = ({ children }) => {
         clearCart,
         setDecrease,
         setIncrement,
-      }}>
+        cartCount,
+        setCartCount,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

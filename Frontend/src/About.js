@@ -9,23 +9,23 @@ function AboutUs() {
   return (  
     <Wrapper>
       <div className="responsive-container-block bigContainer">
+        <div className="responsive-container-block Container">
         <div className="header">
            <p className="text-blk heading">
               <i>About Us</i>
             </p>
         </div>
-        <div className="responsive-container-block Container">
           <div className="imgContainer">
             <img className="mainImg" src={farm} alt="Farm" />
           </div>
           <div className="responsive-container-block textSide">
 
             <p className="text-blk subHeading">
-              <h3>Welcome to Novus Vegetables – your ultimate destination for all things fresh, vibrant, and nourishing! At Novus Vegetables, we have cultivated a digital marketplace where the love for vegetables meets the convenience of modern technology.</h3>
-              <p>Our journey began with a simple yet profound belief: that the path to a healthier and happier lifestyle starts with what you put on your plate. With this ethos at heart, we embarked on a mission to connect local growers, passionate gardeners, and vegetable enthusiasts from all walks of life. Our platform not only redefines the way we buy and sell vegetables but also fosters a sense of community built upon a shared passion for wholesome, sustainable living.</p>
+              Welcome to Novus Vegetables! Your ultimate destination for all things fresh, vibrant, and nourishing! At Novus Vegetables, we have cultivated a digital marketplace where the love for vegetables meets the convenience of modern technology.<br/>
+              Our journey began with a simple yet profound belief: that the path to a healthier and happier lifestyle starts with what you put on your plate. With this ethos at heart, we embarked on a mission to connect local growers, passionate gardeners, and vegetable enthusiasts from all walks of life. Our platform not only redefines the way we buy and sell vegetables but also fosters a sense of community built upon a shared passion for wholesome, sustainable living.
             </p>
             <p>
-              <h2>Why choose us? It's not just about the veggies – it's about the experience. Here's what sets us apart:</h2>
+              <h2 className="heading">Why choose us?</h2>
             </p>
             <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
               <div className="cardImgContainer">
@@ -126,6 +126,7 @@ font-family: 'Poppins', sans-serif;
   margin:0;
 }
 .header{
+  font-family: 'Courgette', cursive;
   padding-top:10px;
   width:100%;
   position:relative;
@@ -135,26 +136,26 @@ font-family: 'Poppins', sans-serif;
 
 }
 .responsive-container-block.Container {
-  max-width: 1320px;
+  max-width: 87%;
   display:flex;
   flex-direction:row;
   justify-content: space-evenly;
   align-items: center;
-  padding:10px;
+  padding:20px;
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin-top: 0px;
-  margin-right: auto;
-  margin-bottom: 0px;
-  margin-left: auto;
+  margin:20px auto;
   gap:20px;
+  border-radius:10px;
+  box-shadow:inset 0px 0px 13px 5px rgba(0,0,0,0.1);
 }
 
 .mainImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius:10px;
 }
 
 
@@ -174,6 +175,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 .text-blk.heading {
+  color:#295a13d1;
   font-size: 36px;
   line-height: 40px;
   font-weight: 1000;
@@ -184,14 +186,19 @@ font-family: 'Poppins', sans-serif;
 }
 
 .text-blk.subHeading {
-  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.7rem;
+  font-weight:500;
   line-height: 26px;
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 20px;
   margin-left: 0px;
-}
 
+}
+.text-blk.subHeading.heading{
+  font-family: 'Oswald', sans-serif;
+}
 .cardImg {
   width: 100px;
   height: 100px;

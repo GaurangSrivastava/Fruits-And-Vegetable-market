@@ -6,20 +6,20 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
+
 }
 
 
 html {
   font-size: 62.5%;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
   /* 1rem = 10px */
   overflow-x: hidden;
 }
 
 body {
   overflow-x: hidden;
-   scrollbar-color: rgb(98 84 243);
+   scrollbar-color: black;
     scrollbar-width: thin;
 }
 
@@ -28,12 +28,12 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-   background-color: rgb(24 24 29);
+   background-color: #CFD2CD;
 }
 
 body::-webkit-scrollbar-thumb {
  
-  background: #fff;
+  background: #3D8F6A;
     border: 5px solid transparent;
     border-radius: 9px;
     background-clip: content-box;
@@ -43,7 +43,7 @@ h1,
 h2,
 h3,
 h4 {
-   font-family: "Work Sans", sans-serif;
+  font-family: 'Poppins', sans-serif;
 
 }
 
@@ -67,6 +67,7 @@ h3 {
 }
 
 p, button {
+  font-family: 'Poppins', sans-serif;
   color: ${({ theme }) => theme.colors.text};
   font-size: 1.65rem;
   line-height: 1.5;
@@ -127,7 +128,6 @@ ${"" /* resuable code section  */}
       position: absolute;
       top: 15%;
       right: 10%;
-      text-transform: uppercase;
       background-color: ${({ theme }) => theme.colors.bg};
       color: ${({ theme }) => theme.colors.helper};
       padding: 0.8rem 2rem;
@@ -136,17 +136,16 @@ ${"" /* resuable code section  */}
     }
 
 input, textarea{
-    max-width: 50rem;
+    max-width: 100rem;
     color: ${({ theme }) => theme.colors.black};
     padding: 1.6rem 2.4rem;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    text-transform: uppercase;
-   box-shadow: ${({ theme }) => theme.colors.shadowSupport};
+    border: 1px solid rgb(34 167 59);
+    border-radius: 5px;
 }
     input[type="submit"]{
     max-width: 16rem;
     margin-top: 2rem;
-    background-color: ${({ theme }) => theme.colors.btn};
+    background-color: rgb(37 106 38 / 80%);
     color: ${({ theme }) => theme.colors.white};
     padding: 1.4rem 2.2rem;
     border-style: solid;

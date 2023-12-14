@@ -1,23 +1,49 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { NavLink } from 'react-router-dom';
-import Background from "./assets/Login-background.jpg"
+import { NavLink } from "react-router-dom";
+import Background from "./assets/Login-background.jpg";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "./context/user_context";
+
 function Login() {
-  const initialValues = { username: "",  password: "" };
+  const initialValues = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-
+  const { userId, setUserId } = useUserContext();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    setIsSubmit(true);
+    try {
+      const data = await axios.post(
+        `http://localhost:5000/api/customer/login`,
+        {
+          username: formValues.username,
+          password: formValues.password,
+        }
+      );
+
+      console.log(data);
+      if (data.data.message === "Authentication failed") {
+        alert("Authentication failed");
+      } else {
+        localStorage.setItem("userId", data.data.cred.userId);
+        localStorage.setItem("username", data.data.cred.username);
+        setUserId(data.data.cred.userId);
+        // toast.success("user signed up successfully!");
+        navigate("/products");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -33,55 +59,50 @@ function Login() {
     }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 10) {
-      errors.password = "Password cannot exceed more than 10 characters";
     }
     return errors;
   };
 
   return (
     <Wrapper>
-    <div className="container-login">
-      <form onSubmit={handleSubmit}>
-        <h1>Login </h1>
-        <div className="ui divider"></div>
-        <div className="ui form">
-          <div className="field">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formValues.username}
-              onChange={handleChange}
-            />
-             <span></span>
-           <label>Username</label>
-          </div>
-          <p>{formErrors.username}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
+      <div className="container-login">
+        <form onSubmit={handleSubmit}>
+          <h1>Login </h1>
+          <div className="ui divider"></div>
+          <div className="ui form">
+            <div className="field">
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={formValues.username}
+                onChange={handleChange}
+              />
+              <span></span>
+              <label>Username</label>
+            </div>
+            <p>{formErrors.username}</p>
+            <div className="field">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formValues.password}
+                onChange={handleChange}
+              />
               <span></span>
               <label>Password</label>
-            
+            </div>
+            <p>{formErrors.password}</p>
+            <button className="button-blue">Login</button>
+            <div class="signup_link">
+              <NavLink className="signup_link" to="/signup">
+                Not a member? Signup
+              </NavLink>
+            </div>
           </div>
-          <p>{formErrors.password}</p>
-          <button className="button-blue">Login</button>
-          <div class="signup_link">
-          <NavLink className="signup_link" to="/signup">
-              Not a member? Signup
-            </NavLink>
-        </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
     </Wrapper>
   );
 }
@@ -90,7 +111,7 @@ const Wrapper = styled.div`
 width:100%;
 height:100%;
 background-image:url(${Background});
-background-size: 100%;
+background-size: 100% 100%;
 background-repeat: no-repeat;
 .container-login {
   display: flex;
@@ -103,11 +124,15 @@ background-repeat: no-repeat;
   margin: auto;
 }
 .container-login h1{
+  font-family: 'Courgette', cursive;
+  color:#2f804e;
+  font-weight:700;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   border-bottom: 1px solid silver;
 }
 .container-login > form {
+  font-family: 'Great Vibes', cursive;
   width: 70%;
   border: 1px solid #dfdfdf;
   padding: 20px;
@@ -132,7 +157,7 @@ form .field{
   position: absolute;
   top: 50%;
   left: 5px;
-  color: #adadad;
+  color: #4c7e18;
   transform: translateY(-50%);
   font-size: 16px;
   pointer-events: none;
@@ -145,13 +170,13 @@ form .field{
   left: 0;
   width: 0%;
   height: 2px;
-  background: #2691d9;
+  background: #87ca41;
   transition: .5s;
 }
 .field input:focus ~ label,
 .field input:valid ~ label{
   top: -5px;
-  color: #2691d9;
+  color: #4c7e18;
 }
 .field input:focus ~ span::before,
 .field input:valid ~ span::before{
@@ -164,10 +189,11 @@ pre {
 }
 
 .button-blue {
+  font-family: 'Great Vibes', cursive;
   width: 100%;
   height: 50px;
   border: 1px solid;
-  background: #2691d9;
+  background: #5eb85ad4;
   border-radius: 25px;
   font-size: 18px;
   color: #e9f4fb;
@@ -186,7 +212,7 @@ pre {
   color: #666666;
 }
 .signup_link a{
-  color: #2691d9;
+  color: #0e6613;
   text-decoration: none;
 }
 .signup_link a:hover{

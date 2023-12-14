@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import FilterSection from "./components/FilterSection";
 import ProductList from "./components/ProductList";
+import BannerSlider from "./components/BannerSlider";
 //mport { useFilterContext } from "./context/filter_context";
 
 const Products = () => {
   return (
     <Wrapper>
+    <BannerSlider/>
       <div className="product">
         <h1>Our <span>Products</span></h1>
       </div>
@@ -26,10 +28,10 @@ const Products = () => {
 
 const Wrapper = styled.section`
 .product{
+  height:50px;
   margin:0px;
   padding:0px;
   font-family:'Poppins', sans-serif;
-
 }
 .product h1{
   text-align:center;

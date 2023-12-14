@@ -32,8 +32,6 @@ const filterReducer = (state, action) => {
         sorting_value: action.payload,
       };
 
-
-
     case "UPDATE_FILTERS_VALUE":
       const { name, value } = action.payload;
 
@@ -59,7 +57,7 @@ const filterReducer = (state, action) => {
 
       if (category !== "all") {
         tempFilterProduct = tempFilterProduct.filter(
-          (curElem) => curElem.category === category
+          (curElem) => curElem.type === category
         );
       }
 

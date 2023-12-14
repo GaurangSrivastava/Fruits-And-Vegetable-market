@@ -13,7 +13,6 @@ const Home = () => {
       <HeroSection myData={data} />
       <FeatureProduct />
       <Services />
-      {/* <Trusted /> */}
     </>
   );
 };

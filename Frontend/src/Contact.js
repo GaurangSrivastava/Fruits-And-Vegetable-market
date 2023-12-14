@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { FaMapMarker, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const Container = styled.div`
@@ -15,7 +16,7 @@ const Container = styled.div`
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 17px 6px rgb(87 147 77 / 20%);
 
   display: flex;
   align-items: center;
@@ -74,7 +75,7 @@ const Details = styled.div`
 
 const Icon = styled.i`
   font-size: 30px;
-  color: #3e2093;
+  color: #098856ba;
   margin-bottom: 10px;
 `;
 
@@ -101,7 +102,7 @@ const RightSide = styled.div`
 const TopicText = styled.div`
   font-size: 23px;
   font-weight: 600;
-  color: #3e2093;
+  color: #2d9023;
 `;
 
 const InputBox = styled.div`
@@ -145,12 +146,13 @@ const ButtonInput = styled.input`
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #3e2093;
+  background: rgb(20 72 21 / 80%);
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #5029bc;
+    background: #629a53cc;
+    transform: scale(0.97);
   }
 `;
 
@@ -160,19 +162,19 @@ const Contact = () => {
       <Container>
         <LeftSide>
           <Details className="address">
-            <Icon className="fas fa-map-marker-alt"></Icon>
+            <Icon className="fas fa-map-marker-alt"><FaMapMarker/></Icon>
             <Topic>Address</Topic>
-            <Text className="text-one">123</Text>
+            <Text className="text-one">14,Clock Tower</Text>
             <Text className="text-two">Dehradun</Text>
           </Details>
           <Details className="phone">
-            <Icon className="fas fa-phone-alt"></Icon>
+            <Icon className="fas fa-phone-alt"><FaPhoneAlt/></Icon>
             <Topic>Phone</Topic>
             <Text className="text-one">+91 9211 420 420</Text>
             <Text className="text-two">+91 9211 420 420</Text>
           </Details>
           <Details className="email">
-            <Icon className="fas fa-envelope"></Icon>
+            <Icon className="fas fa-envelope"><FaEnvelope/></Icon>
             <Topic>Email</Topic>
             <Text className="text-one">vegetablenovus@gmail.com</Text>
             <Text className="text-two">info.novus@gmail.com</Text>
